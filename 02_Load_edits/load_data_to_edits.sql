@@ -37,5 +37,6 @@ JOIN course_editors ON cu_user_name=event_user_text
 WHERE
 	snapshot="2021-02" AND
 	wiki_db="cswiki" AND
-	event_entity="revision"
+	event_entity="revision" AND
+	event_timestamp BETWEEN c_course_start AND c_course_end
 ;

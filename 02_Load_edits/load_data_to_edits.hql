@@ -35,7 +35,7 @@ SELECT DISTINCT
 FROM wmf.mediawiki_history
 JOIN course_editors ON cu_user_name=event_user_text
 WHERE
-	snapshot="2021-02" AND
+	snapshot="2021-03" AND
 	wiki_db="cswiki" AND
 	event_entity="revision" AND
 	revision_is_deleted_by_page_deletion=false AND

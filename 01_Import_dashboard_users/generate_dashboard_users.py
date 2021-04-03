@@ -58,7 +58,7 @@ for campaign_raw in campaigns:
 				user['course'], 
 				dateutil.parser.isoparse(courseData['start']).strftime('%Y-%m-%d'),
 				dateutil.parser.isoparse(courseData['end']).strftime('%Y-%m-%d'),
-				",".join(wikis)
+				"|".join(wikis)
 			]) + "\n")
 			coursesWritten.append(user['course'])
 		coursesUsersFile.write(format_row([

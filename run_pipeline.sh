@@ -2,6 +2,9 @@
 
 set -e
 
+scriptdir="`dirname \"$0\"`"
+cd $scriptdir
+
 echo hive -e "
 USE urbanecm;
 

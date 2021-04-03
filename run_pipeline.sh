@@ -21,7 +21,7 @@ $(cat 00_Schema/wmcz_outreach_dashboard_edits.hql)
 bash 01_Import_dashboard_users/load_dashboard_courses.sh
 
 # STEP 3: Build table with edits
-hive -f 02_Load_edits/load_data_to_edits.sql
+hive -f 02_Load_edits/load_data_to_edits.hql
 
 # STEP 4: Generate data dump
 # For now, accessible from https://people.wikimedia.org/~urbanecm/wmcz/dashboard-stats-data/, but that's likely to change

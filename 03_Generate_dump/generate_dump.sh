@@ -3,7 +3,7 @@
 set -e
 
 scriptdir="`dirname \"$0\"`"
-cd ..
+cd $scriptdir/..
 rm -f data.tar.gz
 cd data
 rm -rf schema

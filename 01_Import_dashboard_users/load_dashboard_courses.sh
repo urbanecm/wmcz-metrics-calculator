@@ -8,6 +8,9 @@ export https_proxy=http://webproxy:8080
 export NO_PROXY=127.0.0.1,::1,localhost,.wmnet
 export no_proxy=127.0.0.1,::1,localhost,.wmnet
 
+scriptdir="`dirname \"$0\"`"
+cd $scriptdir
+
 mkdir /tmp/$$
 python3 generate_dashboard_users.py /tmp/$$
 echo /tmp/$$

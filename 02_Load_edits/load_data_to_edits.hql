@@ -32,7 +32,8 @@ SELECT DISTINCT
 	revision_parent_id,
 	event_timestamp,
 	revision_text_bytes_diff,
-	event_user_revision_count
+	event_user_revision_count,
+	event_user_groups
 FROM wmf.mediawiki_history
 JOIN course_editors ON cu_user_name=event_user_text
 WHERE

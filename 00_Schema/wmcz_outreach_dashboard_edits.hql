@@ -13,7 +13,8 @@ CREATE TABLE wmcz_outreach_dashboard_edits(
 	ce_revision_parent_id bigint,
 	ce_event_timestamp string,
 	ce_revision_text_bytes_diff bigint,
-	ce_event_user_revision_count bigint
+	ce_event_user_revision_count bigint,
+	ce_event_user_groups array<string>
 )
 STORED AS PARQUET
 LOCATION '/user/urbanecm/data/wmcz_outreach_dashboard_edits';

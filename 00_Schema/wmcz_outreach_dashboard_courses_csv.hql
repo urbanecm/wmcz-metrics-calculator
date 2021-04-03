@@ -1,4 +1,4 @@
-create table wmcz_outreach_dashboard_courses_csv(
+CREATE TABLE wmcz_outreach_dashboard_courses_csv(
 	c_campaign string,
 	c_course_slug string,
 	c_course_start date,

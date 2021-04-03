@@ -38,5 +38,6 @@ WHERE
 	snapshot="2021-02" AND
 	wiki_db="cswiki" AND
 	event_entity="revision" AND
+	revision_is_deleted_by_page_deletion=false AND
 	event_timestamp BETWEEN c_course_start AND c_course_end
 ;

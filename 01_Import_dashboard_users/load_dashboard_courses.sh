@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 source ~/venv/bin/activate
 export HTTP_PROXY=http://webproxy:8080
 export HTTPS_PROXY=http://webproxy:8080

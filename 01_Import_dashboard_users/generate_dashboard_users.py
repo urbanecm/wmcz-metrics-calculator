@@ -23,10 +23,12 @@ def normalize_campaign(campaign):
 		return 'knihovny'
 	elif campaign == 'wikimedia_čr__učitelé':
 		return 'učitelé'
+	elif campaign == 'wikimedia_čr__senioři_všichni':
+		return 'seniori'
 	else:
 		return campaign
 
-campaigns = ['studenti', 'wikimedia_čr__studenti_archiv', 'workshopy', 'knihovny', 'wikimedia_čr__knihovny_archiv', 'seniori', 'wikimedia_čr__učitelé']
+campaigns = ['studenti', 'wikimedia_čr__studenti_archiv', 'workshopy', 'knihovny', 'wikimedia_čr__knihovny_archiv', 'seniori', 'wikimedia_čr__senioři_všichni', 'wikimedia_čr__učitelé']
 
 coursesWritten = []
 coursesFile = open(os.path.join(tmpdir, 'courses.tsv'), 'w')

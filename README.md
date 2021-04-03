@@ -6,6 +6,10 @@ This repository can generate information about edits made by participants of out
 ## Running the pipeline
 The `run_pipeline.sh` script will run the data pipeline and create `data` folder, together with `data.tar.gz` archive. As of April 2021, the pipeline requires access to internal Wikimedia resources (namely, Hive databases maintained by the Analytics team). The same data can be derived from [public wiki replicas](https://wikitech.wikimedia.org/wiki/Portal:Data_Services#Wiki_Replicas) maintained by Wikimedia Cloud Data Services or from [Wikimedia Dumps](https://dumps.wikimedia.org/), however, the majority of the data pipeline would likely have to be rewritten.
 
+### TODO
+
+- [ ] [`load_data_to_edits.hql`](https://github.com/urbanecm/wmcz-metrics-calculator/blob/master/02_Load_edits/load_data_to_edits.hql) currently only looks for cswiki contribs; make it use the wikis array from wmcz_outreach_dashboard_courses_csv and look for any contribs in any of those wikis
+
 ## Accessing the data
 As of April 2021, this pipeline is still in early consturction. The data, generated via February 2021 mediawiki_history snapshot, was published at https://people.wikimedia.org/~urbanecm/wmcz/dashboard-stats-data/ as TSV files.
 

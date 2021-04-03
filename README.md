@@ -9,6 +9,7 @@ The `run_pipeline.sh` script will run the data pipeline and create `data` folder
 ### TODO
 
 - [ ] [`load_data_to_edits.hql`](https://github.com/urbanecm/wmcz-metrics-calculator/blob/master/02_Load_edits/load_data_to_edits.hql) currently only looks for cswiki contribs; make it use the wikis array from wmcz_outreach_dashboard_courses_csv and look for any contribs in any of those wikis
+- [ ] Automatically detect the newest snapshot to use in `load_data_to_edits` (can be retreived with `SHOW PARTITIONS wmf.mediawiki_history;`)
 
 ## Accessing the data
 As of April 2021, this pipeline is still in early consturction. The data, generated via February 2021 mediawiki_history snapshot, was published at https://people.wikimedia.org/~urbanecm/wmcz/dashboard-stats-data/ as TSV files.

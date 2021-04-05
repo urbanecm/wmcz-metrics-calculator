@@ -5,6 +5,8 @@ set -e
 scriptdir="`dirname \"$0\"`"
 cd $scriptdir/..
 rm -f data.tar.gz
+rm -rf data
+mkdir data
 cd data
 rm -rf schema
 rm -f *.txt

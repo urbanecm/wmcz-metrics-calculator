@@ -15,7 +15,7 @@ CREATE TABLE wmcz_outreach_dashboard_edits(
 	ce_event_timestamp string,
 	ce_revision_text_bytes_diff bigint,
 	ce_user_edit_count_bucket string,
-	-- ce_user_tenure_bucket string,
+	ce_user_tenure_bucket string,
 	ce_event_user_groups array<string>
 )
 STORED AS PARQUET

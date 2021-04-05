@@ -7,13 +7,15 @@ CREATE TABLE wmcz_outreach_dashboard_edits(
 	ce_user_name string,
 	ce_user_role string,
 	ce_page_id bigint,
-	ce_page_namespace int,
+	ce_creates_new_page boolean,
+	ce_page_namespace string,
 	ce_page_namespace_is_content boolean,
 	ce_revision_id bigint,
 	ce_revision_parent_id bigint,
 	ce_event_timestamp string,
 	ce_revision_text_bytes_diff bigint,
-	ce_event_user_revision_count bigint,
+	ce_user_edit_count_bucket string,
+	-- ce_user_tenure_bucket string,
 	ce_event_user_groups array<string>
 )
 STORED AS PARQUET

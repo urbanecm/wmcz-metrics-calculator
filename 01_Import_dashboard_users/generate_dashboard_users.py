@@ -60,6 +60,11 @@ for campaign_raw in campaigns:
 				user['course'], 
 				dateutil.parser.isoparse(courseData['start']).strftime('%Y-%m-%d'),
 				dateutil.parser.isoparse(courseData['end']).strftime('%Y-%m-%d'),
+				courseData['student_count'],
+				courseData['edit_count'],
+				courseData['upload_count'],
+				courseData['uploads_in_use_count'],
+				courseData['upload_usages_count'],
 				"|".join(wikis)
 			]) + "\n")
 			coursesWritten.append(user['course'])

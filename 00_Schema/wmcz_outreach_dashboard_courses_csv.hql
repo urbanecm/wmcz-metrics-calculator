@@ -1,8 +1,13 @@
 CREATE TABLE wmcz_outreach_dashboard_courses_csv(
-	c_campaign string,
-	c_course_slug string,
-	c_course_start date,
-	c_course_end date,
+	campaign string,
+	course_slug string,
+	course_start date,
+	course_end date,
+	student_count bigint,
+	edit_count bigint,
+	upload_count bigint,
+	uploads_in_use bigint,
+	upload_usages_count bigint,
 	wikis array<string>
 )
 ROW FORMAT DELIMITED

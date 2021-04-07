@@ -5,12 +5,12 @@ course_editors AS (
 	SELECT
 		cu_campaign,
 		cu_course_slug,
-		c_course_start,
-		c_course_end,
+		course_start,
+		course_end,
 		cu_user_role,
 		cu_user_name
 	FROM urbanecm.wmcz_outreach_dashboard_courses_users_csv
-	JOIN urbanecm.wmcz_outreach_dashboard_courses_csv ON c_course_slug=cu_course_slug
+	JOIN urbanecm.wmcz_outreach_dashboard_courses_csv ON course_slug=cu_course_slug
 	WHERE
 		cu_user_role="editor"
 ),
@@ -20,8 +20,8 @@ edit_history AS (
 		wiki_db,
 		cu_campaign,
 		cu_course_slug,
-		c_course_start,
-		c_course_end,
+		course_start,
+		course_end,
 		cu_user_name,
 		cu_user_role,
 		page_id,
@@ -48,7 +48,7 @@ edit_history AS (
 		wiki_db="cswiki" AND
 		event_entity="revision" AND
 		revision_is_deleted_by_page_deletion=false AND
-		event_timestamp BETWEEN c_course_start AND c_course_end
+		event_timestamp BETWEEN course_start AND course_end
 )
 
 INSERT INTO TABLE urbanecm.wmcz_outreach_dashboard_edits
@@ -57,8 +57,8 @@ SELECT DISTINCT
 	wiki_db,
 	cu_campaign,
 	cu_course_slug,
-	c_course_start,
-	c_course_end,
+	course_start,
+	course_end,
 	cu_user_name,
 	cu_user_role,
 	page_id,

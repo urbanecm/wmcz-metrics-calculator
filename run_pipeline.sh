@@ -15,6 +15,8 @@ DROP TABLE IF EXISTS wmcz_outreach_dashboard_courses_users_raw;
 $(cat 00_Schema/wmcz_outreach_dashboard_courses_users_raw.hql)
 DROP TABLE IF EXISTS wmcz_outreach_dashboard_courses_users;
 $(cat 00_Schema/wmcz_outreach_dashboard_courses_users.hql)
+DROP TABLE IF EXISTS cswiki_user_info;
+$(cat 00_Schema/cswiki_user_info.hql)
 DROP TABLE IF EXISTS wmcz_outreach_dashboard_edits;
 $(cat 00_Schema/wmcz_outreach_dashboard_edits.hql)
 "

@@ -27,5 +27,7 @@ LOAD DATA LOCAL INPATH '/tmp/$$/courses.tsv' INTO TABLE wmcz_outreach_dashboard_
 TRUNCATE TABLE wmcz_outreach_dashboard_courses_users_raw;
 LOAD DATA LOCAL INPATH '/tmp/$$/coursesUsers.tsv' INTO TABLE wmcz_outreach_dashboard_courses_users_raw;
 "
-
 rm -rf /tmp/$$
+
+HADOOP_HEAPSIZE=2048 hive -f populate_detailed_dashboard_users.hql
+

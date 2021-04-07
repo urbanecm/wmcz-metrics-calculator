@@ -22,7 +22,7 @@ def normalize_campaign(campaign):
 	elif campaign == 'wikimedia_čr__knihovny_archiv':
 		return 'knihovny'
 	elif campaign == 'wikimedia_čr__učitelé':
-		return 'učitelé'
+		return 'ucitele'
 	elif campaign == 'wikimedia_čr__senioři_všichni':
 		return 'seniori'
 	else:

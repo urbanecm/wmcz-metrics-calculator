@@ -23,9 +23,9 @@ USE urbanecm;
 TRUNCATE TABLE wmcz_outreach_dashboard_courses_csv;
 LOAD DATA LOCAL INPATH '/tmp/$$/courses.tsv' INTO TABLE wmcz_outreach_dashboard_courses_csv;
 
--- Load wmcz_outreach_dashboard_courses_users_csv
-TRUNCATE TABLE wmcz_outreach_dashboard_courses_users_csv;
-LOAD DATA LOCAL INPATH '/tmp/$$/coursesUsers.tsv' INTO TABLE wmcz_outreach_dashboard_courses_users_csv;
+-- Load wmcz_outreach_dashboard_courses_users_raw
+TRUNCATE TABLE wmcz_outreach_dashboard_courses_users_raw;
+LOAD DATA LOCAL INPATH '/tmp/$$/coursesUsers.tsv' INTO TABLE wmcz_outreach_dashboard_courses_users_raw;
 "
 
 rm -rf /tmp/$$

@@ -11,8 +11,8 @@ USE urbanecm;
 
 DROP TABLE IF EXISTS wmcz_outreach_dashboard_courses_csv;
 $(cat 00_Schema/wmcz_outreach_dashboard_courses_csv.hql)
-DROP TABLE IF EXISTS wmcz_outreach_dashboard_courses_users_csv;
-$(cat 00_Schema/wmcz_outreach_dashboard_courses_users_csv.hql)
+DROP TABLE IF EXISTS wmcz_outreach_dashboard_courses_users_raw;
+$(cat 00_Schema/wmcz_outreach_dashboard_courses_users_raw.hql)
 DROP TABLE IF EXISTS wmcz_outreach_dashboard_edits;
 $(cat 00_Schema/wmcz_outreach_dashboard_edits.hql)
 "

@@ -9,7 +9,7 @@ course_editors AS (
 		course_end,
 		cu_user_role,
 		cu_user_name
-	FROM urbanecm.wmcz_outreach_dashboard_courses_users_csv
+	FROM urbanecm.wmcz_outreach_dashboard_courses_users_raw
 	JOIN urbanecm.wmcz_outreach_dashboard_courses_csv ON course_slug=cu_course_slug
 	WHERE
 		cu_user_role="editor"

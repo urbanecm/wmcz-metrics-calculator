@@ -15,7 +15,7 @@ rm -f *.txt
 mkdir schema
 # Copy DDL files for easy access
 cp ../00_Schema/wmcz_outreach_dashboard_edits.hql schema
-cp ../00_Schema/wmcz_outreach_dashboard_courses_users_csv.hql schema
+cp ../00_Schema/wmcz_outreach_dashboard_courses_users_raw.hql schema
 cp ../00_Schema/wmcz_outreach_dashboard_courses_csv.hql schema
 
 # Copy txt version of schema (disabled, not necessary for now)
@@ -25,7 +25,7 @@ cp ../00_Schema/wmcz_outreach_dashboard_courses_csv.hql schema
 
 # Dump data
 hive -e "SELECT * FROM urbanecm.wmcz_outreach_dashboard_edits" > wmcz_outreach_dashboard_edits.txt
-hive -e "SELECT * FROM urbanecm.wmcz_outreach_dashboard_courses_users_csv" > wmcz_outreach_dashboard_courses_users_csv.txt
+hive -e "SELECT * FROM urbanecm.wmcz_outreach_dashboard_courses_users_raw" > wmcz_outreach_dashboard_courses_users_raw.txt
 hive -e "SELECT * FROM urbanecm.wmcz_outreach_dashboard_courses_csv" > wmcz_outreach_dashboard_courses_csv.txt
 
 # Create an archive

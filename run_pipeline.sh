@@ -28,6 +28,4 @@ bash 01_Import_dashboard_users/load_dashboard_courses.sh
 hive -f 02_Load_edits/load_data_to_edits.hql
 
 # STEP 4: Generate data dump
-# For now, accessible from https://people.wikimedia.org/~urbanecm/wmcz/dashboard-stats-data/, but that's likely to change
-# when the pipeline becomes actually used by WMCZ
 bash 03_Generate_dump/generate_dump.sh

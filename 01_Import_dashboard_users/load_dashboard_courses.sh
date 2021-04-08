@@ -29,5 +29,6 @@ LOAD DATA LOCAL INPATH '/tmp/$$/coursesUsers.tsv' INTO TABLE wmcz_outreach_dashb
 "
 rm -rf /tmp/$$
 
+bash ../01_Generate_account_data/generate_account_info.sh
 HADOOP_HEAPSIZE=2048 hive -f populate_detailed_dashboard_users.hql
 

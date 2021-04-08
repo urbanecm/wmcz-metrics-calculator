@@ -13,6 +13,7 @@ analytics-mysql cswiki < account_info.sql > /tmp/$$/account_info.tsv
 hive -e "
 USE urbanecm;
 
+TRUNCATE TABLE cswiki_user_info;
 LOAD DATA LOCAL INPATH '/tmp/$$/account_info.tsv' INTO TABLE cswiki_user_info;
 "
 

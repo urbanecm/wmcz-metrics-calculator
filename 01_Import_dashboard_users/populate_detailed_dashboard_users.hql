@@ -2,6 +2,20 @@ USE urbanecm;
 
 TRUNCATE TABLE wmcz_outreach_dashboard_courses_users;
 
+WITH wmcz_course_users AS (
+	SELECT
+		cu_campaign,
+		cu_course_slug,
+		course_start,
+		cu_user_role,
+		cu_user_name,
+		UNIX_TIMESTAMP(course_end) - UNIX_TIMESTAMP(user_registration) AS user_tenure,
+		user_editcount
+	FROM wmcz_outreach_dashboard_courses_users_raw
+	LEFT JOIN cswiki_user_info ON cu_user_name=user_name
+	JOIN wmcz_outreach_dashboard_courses_csv ON cu_course_slug=course_slug
+)
+
 INSERT INTO TABLE wmcz_outreach_dashboard_courses_users
 
 SELECT
@@ -29,6 +43,4 @@ SELECT
 		WHEN user_editcount >= 10000 THEN '10000+'
 		ELSE 'Undefined'
 	END AS user_edit_count_bucket
-FROM wmcz_outreach_dashboard_courses_users_raw
-LEFT JOIN cswiki_user_info ON cu_user_name=user_name
-JOIN wmcz_outreach_dashboard_courses_csv ON cu_course_slug=course_slug;
+FROM wmcz_course_users;

@@ -3,12 +3,5 @@
 SELECT
 	user_name,
 	UNIX_TIMESTAMP() - UNIX_TIMESTAMP(user_registration) AS user_tenure,
-	user_editcount,
-	up_value AS gender
-FROM user
--- This join might sound scary from privacy perspective: this field is available on the public replicas
--- and is therefore in public knowledge.
-LEFT JOIN (SELECT *
-FROM user_properties
-WHERE up_property="gender") AS genders
-ON user_id=up_user;
+	user_editcount
+FROM user;

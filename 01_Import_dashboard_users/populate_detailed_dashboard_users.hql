@@ -27,7 +27,6 @@ SELECT
 		WHEN user_editcount >= 1000 AND user_editcount < 10000 THEN '1000-9999'
 		WHEN user_editcount >= 10000 THEN '10000+'
 		ELSE 'Undefined'
-	END AS user_edit_count_bucket,
-	user_gender
+	END AS user_edit_count_bucket
 FROM wmcz_outreach_dashboard_courses_users_raw
 LEFT JOIN cswiki_user_info ON cu_user_name=user_name;

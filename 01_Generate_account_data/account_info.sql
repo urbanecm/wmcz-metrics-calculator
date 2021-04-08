@@ -3,5 +3,6 @@
 SELECT
 	user_name,
 	UNIX_TIMESTAMP() - UNIX_TIMESTAMP(user_registration) AS user_tenure,
+	TIMESTAMP(user_registration),
 	user_editcount
 FROM user;

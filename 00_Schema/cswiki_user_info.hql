@@ -1,6 +1,7 @@
 CREATE TABLE cswiki_user_info(
 	user_name string,
 	user_tenure bigint,
+	user_registration timestamp,
 	user_editcount bigint,
 	user_gender string
 )

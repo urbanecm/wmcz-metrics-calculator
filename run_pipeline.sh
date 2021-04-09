@@ -5,6 +5,9 @@ set -e
 scriptdir="`dirname \"$0\"`"
 cd $scriptdir
 
+# Set environment
+export SNAPSHOT="2021-03"
+
 # STEP 1: Drop all tables and recreate them using DDL files in 00_Schema
 hive -e "
 USE urbanecm;
@@ -25,7 +28,7 @@ $(cat 00_Schema/wmcz_outreach_dashboard_edits.hql)
 bash 01_Import_dashboard_users/load_dashboard_courses.sh
 
 # STEP 3: Build table with edits
-hive -f 02_Load_edits/load_data_to_edits.hql
+hive -f 02_Load_edits/load_data_to_edits.hql -d snapshot=$SNAPSHOT
 
 # STEP 4: Generate data dump
 bash 03_Generate_dump/generate_dump.sh

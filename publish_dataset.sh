@@ -15,6 +15,18 @@ if [ ! -e data ]; then
 	exit 2
 fi
 
-mkdir -p /srv/published/datasets/one-off/urbanecm/
-cp -r data /srv/published/datasets/one-off/urbanecm/wmcz-dashboard-data
-cp data.tar.gz /srv/published/datasets/one-off/urbanecm/wmcz-dashboard-data/wmcz-dashboard-data.tar.gz
+mkdir -p /srv/published/datasets/one-off/wmcz/
+cp -r data /srv/published/datasets/one-off/wmcz/dashboard-data
+cat > /srv/published/datasets/one-off/wmcz/dashboard-data/README << EOF
+This folder has data about Wikimedia Czech Republic's outreach activities. All data files are in TSV format, dumped from Hive tables (schema available in schemas folder).
+
+Courses administered outside of the Outreach Dashboard are not included here. WMCZ uses Outreach Dashboard starting August 2017.
+
+== Dataset description
+ - wmcz_outreach_dashboard_courses_csv – all courses organized by WMCZ, with basic aggregated data about participants
+ - wmcz_outreach_dashboard_courses_users – course/participant/facilitator map, with basic data about participants
+ - wmcz_outreach_dashboard_edits – data about all edits made by course participants during the course; does not include edits made after/before course
+
+The whole directory is available in tar.gz format as data.tar.gz
+EOF
+cp data.tar.gz /srv/published/datasets/one-off/wmcz/dashboard-data/data.tar.gz

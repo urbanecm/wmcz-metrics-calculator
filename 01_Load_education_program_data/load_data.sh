@@ -31,3 +31,5 @@ analytics-mysql staging -- -e 'SELECT * FROM ep_articles' > /tmp/$$/ep_articles.
 hive --database=urbanecm -e "
 LOAD DATA LOCAL INPATH '/tmp/$$/ep_articles.tsv' OVERWRITE INTO TABLE urbanecm_cswiki_ep_articles;
 "
+
+rm -rf /tmp/$$

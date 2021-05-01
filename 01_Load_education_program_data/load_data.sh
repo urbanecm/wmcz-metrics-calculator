@@ -53,7 +53,7 @@ CREATE TABLE urbanecm_cswiki_ep_courses (
 ROW FORMAT DELIMITED
 FIELDS TERMINATED BY \"\t\"
 STORED AS TEXTFILE
-LOCATION '/user/urbanecm/data/urbanecm_cswiki_ep_cas';
+LOCATION '/user/urbanecm/data/urbanecm_cswiki_ep_courses';
 "
 
 # convert data into TSV files

@@ -11,7 +11,6 @@ tar -xzf /mnt/data/xmldatadumps/public/other/educationprogram/cswiki.educationpr
 # disable locking
 for f in /tmp/$$/*; do
 	grep -v 'LOCK TABLE' $f > /tmp/$$/t && mv /tmp/$$/t $f
-	sed -i 1d $f
 done
 
 # prepare schema
@@ -71,16 +70,16 @@ LOCATION '/user/urbanecm/data/urbanecm_cswiki_ep_users_per_course';
 
 # convert data into TSV files
 analytics-mysql staging < /tmp/$$/cswiki.ep_articles.20180919
-analytics-mysql staging -- -e 'SELECT * FROM ep_articles;' > /tmp/$$/ep_articles.tsv
+analytics-mysql staging -- -e 'SELECT * FROM ep_articles;' | sed 1d > /tmp/$$/ep_articles.tsv
 analytics-mysql staging -- -e 'DROP TABLE ep_articles;'
 
 analytics-mysql staging < /tmp/$$/cswiki.ep_courses.20180919
 analytics-mysql staging -- -e '	ALTER TABLE ep_courses DROP COLUMN course_token;'
-analytics-mysql staging -- -e 'SELECT * FROM ep_courses;' > /tmp/$$/ep_courses.tsv
+analytics-mysql staging -- -e 'SELECT * FROM ep_courses;' | sed 1d > /tmp/$$/ep_courses.tsv
 analytics-mysql staging -- -e 'DROP TABLE ep_courses;'
 
 analytics-mysql staging < /tmp/$$/cswiki.ep_users_per_course.20180919
-analytics-mysql staging -- -e 'SELECT * FROM ep_users_per_course' > /tmp/$$/ep_users_per_course.tsv
+analytics-mysql staging -- -e 'SELECT * FROM ep_users_per_course' | sed 1d > /tmp/$$/ep_users_per_course.tsv
 analytics-mysql staging -- -e 'DROP TABLE ep_users_per_course;'
 
 # load data to hive

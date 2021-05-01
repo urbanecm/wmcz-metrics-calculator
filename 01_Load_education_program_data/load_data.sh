@@ -55,6 +55,18 @@ ROW FORMAT DELIMITED
 FIELDS TERMINATED BY \"\t\"
 STORED AS TEXTFILE
 LOCATION '/user/urbanecm/data/urbanecm_cswiki_ep_courses';
+
+DROP TABLE urbanecm_cswiki_ep_users_per_course;
+CREATE TABLE urbanecm_cswiki_ep_users_per_course (
+	upc_user_id bigint,
+	upc_course_id bigint,
+	upc_role bigint,
+	upc_time string
+)
+ROW FORMAT DELIMITED
+FIELDS TERMINATED BY \"\t\"
+STORED AS TEXTFILE
+LOCATION '/user/urbanecm/data/urbanecm_cswiki_ep_users_per_course';
 "
 
 # convert data into TSV files
@@ -67,10 +79,15 @@ analytics-mysql staging -- -e '	ALTER TABLE ep_courses DROP COLUMN course_token;
 analytics-mysql staging -- -e 'SELECT * FROM ep_courses;' > /tmp/$$/ep_courses.tsv
 analytics-mysql staging -- -e 'DROP TABLE ep_courses;'
 
+analytics-mysql staging < /tmp/$$/cswiki.ep_users_per_course.20180919
+analytics-mysql staging -- -e 'SELECT * FROM ep_users_per_course' > /tmp/$$/ep_users_per_course.tsv
+analytics-mysql staging -- -e 'DROP TABLE ep_users_per_course;'
+
 # load data to hive
 hive --database=urbanecm -e "
 LOAD DATA LOCAL INPATH '/tmp/$$/ep_articles.tsv' OVERWRITE INTO TABLE urbanecm_cswiki_ep_articles;
 LOAD DATA LOCAL INPATH '/tmp/$$/ep_courses.tsv' OVERWRITE INTO TABLE urbanecm_cswiki_ep_courses;
+LOAD DATA LOCAL INPATH '/tmp/$$/ep_users_per_course.tsv' OVERWRITE INTO TABLE urbanecm_cswiki_ep_users_per_course;
 "
 
 rm -rf /tmp/$$

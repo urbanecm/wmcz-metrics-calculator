@@ -51,7 +51,7 @@ CREATE TABLE urbanecm_cswiki_ep_courses (
 	course_student_count bigint
 )
 ROW FORMAT DELIMITED
-FIELDS TERMINATED BY "\t"
+FIELDS TERMINATED BY \"\t\"
 STORED AS TEXTFILE
 LOCATION '/user/urbanecm/data/urbanecm_cswiki_ep_cas';
 "

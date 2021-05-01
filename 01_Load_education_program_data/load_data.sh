@@ -11,6 +11,7 @@ tar -xzf /mnt/data/xmldatadumps/public/other/educationprogram/cswiki.educationpr
 # disable locking
 for f in /tmp/$$/*; do
 	grep -v 'LOCK TABLE' $f > /tmp/$$/t && mv /tmp/$$/t $f
+	sed -i 1d $f
 done
 
 # prepare schema

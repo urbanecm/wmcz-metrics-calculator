@@ -16,6 +16,7 @@ if [ ! -e data ]; then
 fi
 
 mkdir -p /srv/published/datasets/one-off/wmcz/
+rm -rf /srv/published/datasets/one-off/wmcz/dashboard-data
 cp -r data /srv/published/datasets/one-off/wmcz/dashboard-data
 cat > /srv/published/datasets/one-off/wmcz/dashboard-data/README << EOF
 This folder has data about Wikimedia Czech Republic's outreach activities. All data files are in TSV format, dumped from Hive tables (schema available in schemas folder).

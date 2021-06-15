@@ -18,5 +18,7 @@ CREATE TABLE wmcz_outreach_dashboard_edits(
 	user_tenure_bucket string,
 	event_user_groups array<string>
 )
-STORED AS PARQUET
+ROW FORMAT DELIMITED
+FIELDS TERMINATED BY "\t"
+STORED AS TEXTFILE
 LOCATION '/user/urbanecm/data/wmcz_outreach_dashboard_edits';

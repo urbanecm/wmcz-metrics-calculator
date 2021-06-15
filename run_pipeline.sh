@@ -6,7 +6,7 @@ scriptdir="`dirname \"$0\"`"
 cd $scriptdir
 
 # Set environment
-export SNAPSHOT="2021-03"
+export SNAPSHOT="2021-05"
 
 # STEP 1: Drop all tables and recreate them using DDL files in 00_Schema
 hive -e "
